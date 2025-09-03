@@ -1,0 +1,43 @@
+/* Sorting icon style */
+.sort-icon {
+  margin-left: 5px;
+  font-size: 0.8rem;
+  color: #333;
+}
+
+/* Make table headers clickable */
+table th {
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.3s, color 0.3s;
+  padding: 12px;
+  text-align: center;
+}
+
+/* Hover effect for headers */
+table th:hover {
+  background: #0d6efd;
+  color: #fff;
+}
+
+/* Highlight active sorted column */
+.active-sort {
+  background-color: #ffc107 !important; /* Bootstrap warning color */
+  color: #212529 !important;
+  font-weight: bold;
+}
+
+/* Table row hover */
+tbody tr {
+  transition: background-color 0.3s ease;
+}
+
+tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+/* Rounded table edges */
+.table {
+  border-radius: 10px;
+  overflow: hidden;
+}

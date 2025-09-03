@@ -1,0 +1,66 @@
+<h3>Simple Component with Searching, Sorting, Filter</h3>
+
+<div class="container mt-4">
+  <!-- 🔍 Search + Filter -->
+  <div class="row mb-3">
+    <div class="col-md-6">
+      <div class="input-group">
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="searchValue"
+          placeholder="Search students..."
+        />
+        <button class="btn btn-primary" (click)="onSearch()">Search</button>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <select
+        class="form-select"
+        [(ngModel)]="selectedClass"
+        (change)="onFilter()"
+      >
+        <option value="">All Classes</option>
+        <option *ngFor="let c of classList" [value]="c">{{ c }}</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- 📋 Student Table -->
+  <div class="table-responsive">
+    <table class="table table-hover table-bordered shadow-sm rounded">
+      <thead class="table-primary">
+        <tr>
+          <th (click)="onSort('name')" [class.active-sort]="sortBy === 'name'">
+            Name <span class="sort-icon">{{ getSortIcon('name') }}</span>
+          </th>
+          <th (click)="onSort('address')" [class.active-sort]="sortBy === 'address'">
+            Address <span class="sort-icon">{{ getSortIcon('address') }}</span>
+          </th>
+          <th (click)="onSort('class')" [class.active-sort]="sortBy === 'class'">
+            Class <span class="sort-icon">{{ getSortIcon('class') }}</span>
+          </th>
+          <th (click)="onSort('rollNo')" [class.active-sort]="sortBy === 'rollNo'">
+            Roll No <span class="sort-icon">{{ getSortIcon('rollNo') }}</span>
+          </th>
+          <th (click)="onSort('fatherName')" [class.active-sort]="sortBy === 'fatherName'">
+            Father Name <span class="sort-icon">{{ getSortIcon('fatherName') }}</span>
+          </th>
+          <th (click)="onSort('motherName')" [class.active-sort]="sortBy === 'motherName'">
+            Mother Name <span class="sort-icon">{{ getSortIcon('motherName') }}</span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let s of students">
+          <td>{{ s.name }}</td>
+          <td>{{ s.address }}</td>
+          <td>{{ s.class }}</td>
+          <td>{{ s.rollNo }}</td>
+          <td>{{ s.fatherName }}</td>
+          <td>{{ s.motherName }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
