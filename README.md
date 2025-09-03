@@ -1,2 +1,2 @@
 # NGProject
-## install node modles using npm install then run the application
+## Install node modles using <code>npm install</code? then run the application
